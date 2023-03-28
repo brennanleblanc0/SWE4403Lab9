@@ -6,8 +6,6 @@ public class Demo {
         StockView list = new StockListView();
 
         PriceChange change = new PriceChange();
-        change.subscribe(list);
-        change.subscribe(bar);
 
         Stock hpe = new Stock("HPE", 14.20, change);
         Stock bce = new Stock("BCE", 60.55, change);
@@ -16,6 +14,9 @@ public class Demo {
 
         list.addStock(bce);
         list.addStock(hpe);
+
+        change.subscribe(list);
+        change.subscribe(bar);
 
         System.out.println("Before Update");
         bar.show();
