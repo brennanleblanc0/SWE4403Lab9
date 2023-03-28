@@ -7,14 +7,13 @@ public abstract class StockView {
     protected List<Stock> stocks = new ArrayList<>();
 
     public void update(Stock stock) {
-        if (stock != null) {
-            for (Stock curStock : stocks) {
-                if (curStock.getSymbol().equals(stock.getSymbol())) {
-                    curStock.setPrice(stock.getPrice());
-                }
+        for (Stock curStock : stocks) {
+            if (curStock.getSymbol().equals(stock.getSymbol())) {
+                System.out.println("Price updated");
+                show();
+                return;
             }
         }
-        show();
     }
 
     public void addStock(Stock stock) {

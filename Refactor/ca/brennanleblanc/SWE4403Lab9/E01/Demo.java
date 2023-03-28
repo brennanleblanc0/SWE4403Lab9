@@ -5,24 +5,26 @@ public class Demo {
         StockView bar = new StatusBar();
         StockView list = new StockListView();
 
-        Stock hpe = new Stock("HPE", 14.20);
-        Stock bce = new Stock("BCE", 60.55);
+        PriceChange change = new PriceChange();
+        change.subscribe(list);
+        change.subscribe(bar);
+
+        Stock hpe = new Stock("HPE", 14.20, change);
+        Stock bce = new Stock("BCE", 60.55, change);
 
         bar.addStock(bce);
 
         list.addStock(bce);
         list.addStock(hpe);
 
-        PriceChange change = new PriceChange();
-        change.subscribe(list);
-        change.subscribe(bar);
-
         System.out.println("Before Update");
-        change.notifySubscribers(null);
+        bar.show();
+        list.show();
 
-        Stock hpeUpdate = new Stock("HPE", 15.35);
-        System.out.println("\nAfter Update");
-        change.notifySubscribers(hpeUpdate);
+        System.out.println("\nAfter Updating HPE");
+        hpe.setPrice(15.35);
 
+        System.out.println("\nAfter updating BCE");
+        bce.setPrice(65.55);
     }
 }
