@@ -1,4 +1,4 @@
-package com.designpatterns.mediator;
+package ca.brennanleblanc.SWE4403Lab9.E02;
 
 public class TextBox extends UIControl {
     private String content;

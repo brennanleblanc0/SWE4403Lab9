@@ -1,20 +1,24 @@
-package com.designpatterns.observer;
+package ca.brennanleblanc.SWE4403Lab9.E01;
 
 public class Stock {
     private String symbol;
-    private float price;
+    private double price;
 
-    public Stock(String symbol, float price) {
+    public Stock(String symbol, double price) {
         this.symbol = symbol;
         this.price = price;
     }
 
-    public float getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(float price) {
+    public void setPrice(double price) {
         this.price = price;
+    }
+
+    public String getSymbol() {
+        return symbol;
     }
 
     @Override

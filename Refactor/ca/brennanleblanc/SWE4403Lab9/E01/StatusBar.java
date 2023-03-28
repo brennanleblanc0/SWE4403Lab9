@@ -1,14 +1,6 @@
-package com.designpatterns.observer;
+package ca.brennanleblanc.SWE4403Lab9.E01;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class StatusBar {
-    private List<Stock> stocks = new ArrayList<>();
-
-    public void addStock(Stock stock) {
-        stocks.add(stock);
-    }
+public class StatusBar extends StockView {
 
     public void show() {
         for (var stock : stocks)
